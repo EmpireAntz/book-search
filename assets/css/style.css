@@ -1,11 +1,13 @@
 /* Sets the background color for the entire page*/
 body {
-    background-color: rgb(20, 141, 131);
+    background-color: rgb(47, 63, 61);
+    font-family: 'Philosopher', sans-serif;
 }
 /* Styling for our header */
 h2 {
     color:rgb(255, 255, 255);
     font-size: 5vh;
+    font-family: 'Philosopher', sans-serif;
 }
 /*Styling for all paragraph elements*/
 P {
@@ -17,7 +19,7 @@ P {
     position: relative;
     width: 100%; /*sets the width to be the full size of the webpage*/
     height: 60vh; /*sets the height of the hero*/
-    background: url('../images/library.webp') center/cover; /*links an image of a library to be the hero background*/
+    background: url('../images/henry-be-lc7xcWebECc-unsplash.jpg') center/cover; /*links an image of a library to be the hero background*/
     top: 10vh;/*moves the hero down from the top of the page*/
 }
 /*overlay for the hero section*/
