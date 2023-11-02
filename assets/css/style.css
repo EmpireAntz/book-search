@@ -18,7 +18,7 @@ P {
 .hero-section {
     position: relative;
     width: 100%; /*sets the width to be the full size of the webpage*/
-    height: 60vh; /*sets the height of the hero*/
+    height: 75vh; /*sets the height of the hero*/
     background: url('../images/henry-be-lc7xcWebECc-unsplash.jpg') center/cover; /*links an image of a library to be the hero background*/
     top: 10vh;/*moves the hero down from the top of the page*/
 }
@@ -53,10 +53,7 @@ P {
     color:rgb(177, 177, 177);
 }
 
-span {
-    color: black;
-}
 
-.card-info {
-    color: black;
+.library:hover {
+    scale: 120%;
 }

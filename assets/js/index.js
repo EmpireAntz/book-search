@@ -28,7 +28,7 @@ function searchBooks(input) {
     fetch(fullUrl)
     .then(function(resp) {
         //If the response is not an OK code a new Error will be thrown and caught at the end of the response chain, skipping any code between
-        if (!resp.ok || !input) {
+        if (!resp.ok) {
             throw new Error(`HTTP error! Status: ${resp.status}`)
         }
         //Returns the response in json format
@@ -36,6 +36,9 @@ function searchBooks(input) {
     })
     //Parsed json data from the above returned promise will be stored in data
     .then(function(data) {
+        if(data === undefined || data.items === undefined) {
+            throw new Error('data is undefined')
+        }
         //Sets our searched data items into an array of objects in local storage for us to be able to grab by the key of'books' later
         localStorage.setItem('books', JSON.stringify(data.items))
         //When the user searches a book we are directed to the cards.html which is connected to the cards.js
@@ -47,8 +50,6 @@ function searchBooks(input) {
         console.error(err, "Could not fetch data")
     })
 }
-
-
 //Function to display random quotes on the inex.html
 function displayQuote() {
     //Varibale to store our category for the quotes api to use
@@ -92,6 +93,4 @@ function displayQuote() {
         console.error(err, "Could not fetch data")
     })
  
-
-} 
-
+}

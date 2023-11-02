@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!--Google icons for use with materialize css-->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+     <!--CDN link for materialize css framework-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <!--Link to custom css stylesheet-->
+     <link rel="stylesheet" href="../css/style.css">
+    <title>Book Looker - Favorites</title>
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper">
+            <div class="brand-logo left">Book Looker</div>
+            <ul id="nav" class="right">
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="favorites.html">Favorites</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <!--Materialize class of container to generate some side margins-->
+    <div class="container">
+      <!--Container for our book cards. this should be stylized to be cards with materialize in the js later. Check the cards.js to see what html is being dynamicially generated-->
+      <div id="card-container">
+      </div>
+    </div>
+
+       <!--CDN link for the materialize js-->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+       <!--Link to custom javascript for this page-->
+    <script src="../js/favorites.js"></script>
+</body>
+</html>
