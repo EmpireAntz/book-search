@@ -1,3 +1,7 @@
+
+var searchForm= document.getElementById('book-input-field')
+searchForm.classList.add('black-text')
+
 //Variable books will hold data we get from what we stored in local storage in our index.js
 var books = JSON.parse(localStorage.getItem('books'))
 // This event listener will wait until the document's content has fully loaded
@@ -91,16 +95,4 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const searchIcon = document.getElementById('search-icon');
-    const searchInput = document.getElementById('book-input-field');
-
-    searchIcon.addEventListener('click', function() {
-        searchInput.classList.add('text-color-changed');
-
-        searchInput.addEventListener('blur', function() {
-        searchInput.classList.remove('text-color-changed');
-    });
-    });
-});
 
