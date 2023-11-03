@@ -54,3 +54,16 @@ document.addEventListener('DOMContentLoaded', function() {
     })   
   
 })
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchIcon = document.getElementById('search-icon');
+    const searchInput = document.getElementById('book-input-field');
+
+    searchIcon.addEventListener('click', function() {
+        searchInput.classList.add('text-color-changed');
+
+        searchInput.addEventListener('blur', function() {
+        searchInput.classList.remove('text-color-changed');
+    });
+    });
+});

@@ -54,3 +54,22 @@ P {
 .library:hover {
     scale: 120%;
 }
+
+.brand-logo {
+    margin-left: 20px;
+    }
+
+    nav {
+        background-color:darkseagreen;
+    }
+    nav ul li a {
+        color: white;
+    }
+    
+    .material-icons{
+        cursor: pointer;
+    }
+    
+    .text-color-changed {
+        color: black!important;
+    }
