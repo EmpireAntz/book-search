@@ -57,3 +57,36 @@ document.addEventListener('DOMContentLoaded', function() {
   
 })
 
+var gBooksURL = "https://www.googleapis.com/books/v1/volumes?q=";
+var gBooksAPIKey = "AIzaSyAB-DMWo1SEDPqiD8Ihs-wgBnfsUTn9DRo";
+
+var cardsSearchForm = document.getElementById('search-form');
+var cardsUserInput = document.getElementById('book-input-field'); 
+
+cardsSearchForm.addEventListener('submit', function (e) {
+    var inputVal = cardsUserInput.value;
+    e.preventDefault();
+    searchBooks(inputVal);
+});
+
+function searchBooks(input) {
+    var fullUrl = gBooksURL + input + "&key=" + gBooksAPIKey;
+    
+    fetch(fullUrl)
+    .then(function(resp) {
+        if (!resp.ok) {
+            throw new Error(`HTTP error! Status: ${resp.status}`);
+        }
+        return resp.json();
+    })
+    .then(function(data) {
+        if (data === undefined || data.items === undefined) {
+            throw new Error('Data is undefined');
+        }
+        localStorage.setItem('books', JSON.stringify(data.items));
+        window.location.href = "cards.html";
+    })
+    .catch(function(err) {
+        console.error(err, "Could not fetch data");
+    });
+}
