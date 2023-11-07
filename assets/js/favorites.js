@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <i class="material-icons">clear</i>
                     </a>
                     <span class="black-text">
-                        <h3>${bookTitle}</h3>
-                        <h5>-${bookAuthor}</h5>
+                        <h3 class="cardTitle">${bookTitle}</h3> 
+                        <h5 class="authorCard">-${bookAuthor}</h5>
                         <p>${bookDescription}</p>
                     </span>
                 </div>

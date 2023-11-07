@@ -1,58 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
     <!--google icons for use with materialize css-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
     <!--CDN link for materialize css framework-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
     <!--Link to custom css stylesheet-->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
 
     <title>Book Looker</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!--Adds a navbar to rhe top of the page with a fixed position and materialize class to stylize-->
     <div class="navbar-fixed">
-        <nav>
-          <div class="nav-wrapper blue-grey darken-2">
-            <div class="brand-logo left">Book Looker</div>
-            <ul id="nav" class="right">
-              <!--Brings us to the home page-->
-              <li><a href="">Home</a></li>
-              <!--Brings us to the favorites page-->
-              <li><a href="assets/html/favorites.html">Favorites</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      <nav>
+        <div class="nav-wrapper blue-grey darken-2">
+          <div id="my-text" class="brand-logo left"><a id="logo" href="./index.html">BookLooker</a></div>
+          <ul id="nav" class="right">
+            <!--Brings us to the home page-->
+            <li><a href="">Home</a></li>
+            <!--Brings us to the favorites page-->
+            <li><a href="assets/html/favorites.html">Favorites</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
     <!--hero section and overlay classes to style the hero image with css-->
     <div class="hero-section">
-        <div class="hero-overlay">
-            <!--materialize class container uses grid to center the contents-->
-            <div class="hero-content container">
-                <h2>Find Your Favorite Book</h2>
-                <!--for when we get the quote from the api we can dynamicially add it here from our js-->
-                <div class="quote-container">
-                    <!--quotee will go here-->
-                    <p id ="quote-placement"></p>
-                    <!--author of the quote will go here-->
-                    <p id ="quote-author"></p>
-                </div>
-                <!--form for the user input field-->
-                <form id="search-form">
-                    <!--input field where the user will search for a book-->
-                    <input id="book-input-field" placeholder="The Fellowship of the Ring...">
-                    <!--materialize classes add the styling to the button-->
-                    <button id="search-btn"class="btn waves-effect waves-light blue-grey darken-1" type="submit" name="action">Search
-                        <!--icon on the button-->
-                        <i class="material-icons right">send</i>
-                    </button>
-                </form>
-            </div>
+      <div class="hero-overlay">
+        <!--materialize class container uses grid to center the contents-->
+        <div class="hero-content container">
+          <h2>Your Book Journey Begins</h2>
+          <!--for when we get the quote from the api we can dynamicially add it here from our js-->
+          <div class="quote-container">
+            <!--quotee will go here-->
+            <p id="quote-placement"></p>
+            <!--author of the quote will go here-->
+            <p id="quote-author"></p>
+          </div>
+          <!--form for the user input field-->
+          <form id="search-form">
+            <!--input field where the user will search for a book-->
+            <input
+              id="book-input-field"
+              placeholder="The Fellowship of the Ring..."
+            />
+            <!--materialize classes add the styling to the button-->
+            <button
+              id="search-btn"
+              class="btn waves-effect waves-light blue-grey darken-1 btn-large"
+              type="submit"
+              name="action"
+            >
+              Search
+              <!--icon on the button-->
+              <i class="material-icons right">send</i>
+            </button>
+          </form>
         </div>
+      </div>
     </div>
     <!--Creates a Modal object to open when a user doesnt enter an input-->
     <div id="modal1" class="modal open">
@@ -69,11 +82,8 @@
     </div>
 
     <!--CDN link for the materialize js-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--link to custom javascript-->
     <script src="assets/js/index.js"></script>
- </body>
- </html>
-        
-       
-    
+  </body>
+</html>
