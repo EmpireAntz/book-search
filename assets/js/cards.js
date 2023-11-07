@@ -131,6 +131,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
 })
 
+// Base URL for the book API obtained from google 
+var apiBaseURL = "https://www.googleapis.com/books/v1/volumes?q=";
 
+// API key to access the Google Book API
+var apiKey = "AIzaSyCcxgEUgvSu8RkuT8vls4mBHU95bbQTI1A";
 
+// The form where users input their search query, in this case the book name
+var searchForm = document.getElementById("search-form");
+var userInput = document.getElementById("book-input-field");
 
+// Functions used to submit the input or event
+searchForm.addEventListener("submit", function (e) {
+  var inputVal = userInput.value;
+  // Prevent the default form submission action when the form is submitted 
+  e.preventDefault();
+  // Update the localStorage with the new search term before performing the search
+  localStorage.setItem('user-input', JSON.stringify(inputVal));
+  // Obtains the user input from the input field and call the 'performSearch' fucntion with the user's input
+  performSearch(inputVal);
+});
+
+// This main function is used to handle searches by contructing the URL needed to make the API request
+function performSearch(input) {
+    // Uses the user input to contructs the full URL for the API request
+    var fullUrl = apiBaseURL + encodeURIComponent(input);
+    if (apiKey) {
+      fullUrl += "&key=" + apiKey;
+    }
+    // Creating the response for the HTTP, makes the HTTP create a request to the URL
+    fetch(fullUrl)
+    // Making sure the HTTP response work and block potential errors
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        // If the HTTP response is successfull, it will translate the responds into javascript 
+        return response.json();
+      })
+      // Checks the search data that returned if it is valid and contains the result
+      .then(function (data) {
+        if (!data || !data.items) {
+          throw new Error("No data found");
+        }
+        // Storing all the data from the user input to local storage 
+        localStorage.setItem("books", JSON.stringify(data.items));
+        // Location of the window that will display the result, since the navabr is located in the cards.html
+        window.location.href = "cards.html";
+      })
+      // This function handles any error that could occur during the fetch
+      .catch(function (error) {
+        console.error(error, "Could not fetch data");
+      });
+  }  
