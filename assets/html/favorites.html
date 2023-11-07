@@ -19,14 +19,18 @@
 
             <div id="my-text" class="brand-logo left"><a id="logo" href="../../index.html">Book Looker</a></div>
             
-            <form id="search-form" class="search-form right">
-              <div class="input-field">
-                  <input id="book-input-field" type="search" required>
-                  <label class="label-icon" for="book-input-field"><i id="search-icon" class="material-icons">search</i></label>
-                  <i class="material-icons">close</i>
-              </div>
-          </form>
-
+            <!--Displaying the search function at the right of the navbar-->
+        <form id="search-form" class="search-form right">
+          <!--Acts as the container for the input-->
+         <div class="input-field">
+           <!--User can type their search queries, the type "search" is for search data, and the requires is to make the function mandatory for the field to be filled out-->
+           <input id="book-input-field" type="search" required>
+             <!--Allows user to access the input field by clicking the label icon, the for links the label to the input element-->
+             <label class="label-icon" for="book-input-field"><i id="search-icon" class="material-icons">search</i></label>
+             <!--This is the close icon for closing the search fucntion-->
+             <i class="material-icons">close</i>
+         </div>
+     </form>
 
             <ul id="nav" class="right">
               <!--Brings us to the home page-->
