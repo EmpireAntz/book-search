@@ -1,27 +1,29 @@
+/*Created root css to make things more reuseable*/
+:root {
+    --beige: beige;
+    --white: rgb(255, 255, 255);
+    --gray: rgb(177, 177, 177);
+    --background-color: rgb(47, 63, 61);
+}
 
 /* Sets the background color for the entire page*/
 body {
-    background-color: rgb(47, 63, 61);
+    background-color: var(--background-color);
     font-family: 'Cormorant Garamond', serif;
 }
 /* Styling for our header */
 h2 {
-    color:rgb(255, 255, 255);
-    font-size: 6vh;
-    font-family: 'Cormorant Garamond', serif;
+    color:var(--white);
+    font-size: 5vh;
 }
 /*Styling for all paragraph elements*/
 P {
-    color: rgb(255, 255, 255);
+    color: var(--white);
     margin: 0;
 
 }
 #quote-placement, #quote-author {
-    color: beige;
-}
-/* Styling the Anchor text for logo*/
-#logo {
-    color: beige;
+    color: var(--beige);
 }
 /*Styles the whole hero section*/
 .hero-section {
@@ -55,11 +57,11 @@ P {
 }
 /*styles the font for the input*/
 #book-input-field {
-    color:rgb(255, 255, 255);
+    color: var(--white);
 }
 /*styles the placeholder font for the input field*/
 #book-input-field::placeholder{
-    color:rgb(177, 177, 177);
+    color:var(--gray);
 }
 /*Creates a hover effect on each favorite and remove button*/
 .library:hover {
@@ -69,23 +71,17 @@ P {
 .switch {
     margin-bottom: 2vh;
 }
-#oops {
-    color: #fff;
-}
 
-/* Landing page only font styling*/
-#quote-placement, #quote-author {
-    font-family: 'Cinzel', serif;
-    font-size: 25px;
+#oops {
+    color: var(--beige);
+    text-align: center;
 }
 
 /* animation for the logo text*/
-#my-text {
+.logo {
   animation: my-animation 3s ease-in-out;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 60px;
-  color: beige;
 }
+
 /* key frames animation for the logo text*/
 @keyframes my-animation {
   0% {
@@ -97,17 +93,16 @@ P {
 }
 
 /* Styling of text in the cards*/
-.cardTitle, .authorCard {
-    color: beige;
+.cardTitle, .authorCard, .logo {
+    color: var(--beige);
 }
 
 button:hover {
- background-color: beige;
+    scale: 110%;
 }
 
 /* animation for the button*/
 button {
-    font-size: 30px;
     animation: my-animation 1s ease-out;
 }
 
