@@ -100,6 +100,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+          
+        //Appends the generated cards to the cards container
+        cardContainer.innerHTML = cardsHTML
+   
+    var noCardsHTML = document.getElementById('oops')
+    if (favorites.length === 0) {
+        noCardsHTML.style.display = "block"
+    }
+    //Selects all our buttons on each card
+    document.querySelectorAll('.library').forEach(function(button) {
+        //Adds a click listener to each button 
+        button.addEventListener('click', function(e) {
+            //Gets the index number of the button from the data-index we set in the html above
+            var index = parseInt(e.currentTarget.getAttribute('data-index'))
+            console.log(index)
+            //Removes indexed card from favorites list 
+            favorites.splice(index, 1)
+            //Saves new list to local storage
+            localStorage.setItem('favorites', JSON.stringify(favorites))
+            //Live reloads to show card has been deleted
+            location.reload()
+        })
+
+    })   
+  
 
 var gBooksURL = "https://www.googleapis.com/books/v1/volumes?q=";
 var gBooksAPIKey = "AIzaSyAB-DMWo1SEDPqiD8Ihs-wgBnfsUTn9DRo";
