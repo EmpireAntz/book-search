@@ -17,8 +17,9 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper blue-grey darken-2">
-        <div class="brand-logo left">Book Looker</div>
-        
+
+        <div id="my-text" class="brand-logo left"><a href="../../index.html">Book Looker</a></div>
+    
         <form id="search-form" class="search-form right">
           <div class="input-field">
               <input id="book-input-field" type="search" required>
@@ -37,6 +38,8 @@
       </div>
     </nav>
   </div>
+  <!--Creates a place to append our search result string from user input-->
+    <p class="search-display center" style = "margin: 1vh;"></p>
     <!--Materialize class of container to generate some side margins-->
     <div class="container">
       <!--Container for our book cards. this should be stylized to be cards with materialize in the js later. Check the cards.js to see what html is being dynamicially generated-->

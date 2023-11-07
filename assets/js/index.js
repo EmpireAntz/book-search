@@ -6,8 +6,19 @@ var gBooksAPIKey = "AIzaSyAB-DMWo1SEDPqiD8Ihs-wgBnfsUTn9DRo"
 var searchForm = document.getElementById('search-form')
 //Selects the text input field where the user will enter their unput
 var userInput = document.getElementById('book-input-field')
+//Creastes an instance variable to use with our modal
+var instance
 //Calls our function to display random quotes on the inex.html
 displayQuote()
+//Adds an event listener to wait for all content to load before rendering
+document.addEventListener('DOMContentLoaded', function() {
+    //Selects all modal classes
+    var elems = document.querySelectorAll('.modal')
+    //Sets our instance value to the modal initiation
+    instance = M.Modal.init(elems)[0]
+    //Logs the instance for reference
+    console.log (instance)
+  })
 //Adds an event listener of submit to the entire search form
 searchForm.addEventListener('submit', function (e) {
     //Gets the value entered by the user in the input field
@@ -19,6 +30,11 @@ searchForm.addEventListener('submit', function (e) {
     console.log(inputVal)
     //Calls the searchBooks function with a argument of the users input value
     searchBooks(inputVal)
+    //If the user doest input a value 
+    if (!inputVal) {
+        //Modal will open and tell the user to input a book or author 
+        instance.open()
+    }
 })
 //Function to search for books using Google Books API based on user input
 function searchBooks(input) {
@@ -41,6 +57,8 @@ function searchBooks(input) {
         }
         //Sets our searched data items into an array of objects in local storage for us to be able to grab by the key of'books' later
         localStorage.setItem('books', JSON.stringify(data.items))
+        //Sets our userinput into local storage to use on the cards page for showing results 
+        localStorage.setItem('user-input', JSON.stringify(userInput.value))
         //When the user searches a book we are directed to the cards.html which is connected to the cards.js
         window.location.href = "assets/html/cards.html"
         
@@ -53,7 +71,7 @@ function searchBooks(input) {
 //Function to display random quotes on the inex.html
 function displayQuote() {
     //Varibale to store our category for the quotes api to use
-    var category = "education"
+    var category = "knowledge"
     //Fetches our url with the applied parameters
     fetch('https://api.api-ninjas.com/v1/quotes?category=' + category, {
         method: 'GET',
@@ -83,10 +101,17 @@ function displayQuote() {
         var author = data[0].author
         //Gets the quote info from our returned json data
         var quote = data[0].quote
-        //Appends the random quote to the html
-        quotePlacement.textContent = '"' + quote + '"'
-        //Appends the quotes author to the html
-        quoteAuthorPlacement.textContent = "-" + author
+        //If the quote length returned is less than 150 characters then we append the quote
+        if(quote.length < 160) {
+            //Appends the random quote to the html
+            quotePlacement.textContent = '"' + quote + '"'
+            //Appends the quotes author to the html
+            quoteAuthorPlacement.textContent = "-" + author
+        }
+        //Otherwise we recursively call displayQuote so that we can get a quote that is less than 150 characters
+        else {
+            displayQuote()
+        }
     })
     //Will catch our above error if the response is not OK
     .catch (function(err){
